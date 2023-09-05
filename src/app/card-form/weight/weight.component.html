@@ -1,0 +1,21 @@
+<h3 class="label">Your Weight (KG)</h3>
+
+<div class="columns" [formGroup]="cardForm">
+  <div>
+    <input formControlName="weightInput" (input)="onInput($event)" />
+    <ng-container
+      *ngIf="
+        cardForm.controls.weightInput.touched &&
+        cardForm.controls.weightInput.dirty &&
+        cardForm.controls.weightInput.errors
+      "
+    >
+      <div class="" *ngIf="cardForm.controls.weightInput.errors?.['required']">
+        value must be between 30-200
+      </div>
+    </ng-container>
+  </div>
+  <div>
+    <label><b>=</b>{{ kg | convert }} Pounds</label>
+  </div>
+</div>

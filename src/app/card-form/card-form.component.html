@@ -1,0 +1,70 @@
+<form class="ml-6" [formGroup]="cardForm">
+  <label class="label"> BMI Calculator </label>
+  <br />
+  <label class="label"> First Name </label>
+  <input formControlName="firstName" />
+  <ng-container
+    *ngIf="
+      cardForm.controls.firstName.touched &&
+      cardForm.controls.firstName.dirty &&
+      cardForm.controls.firstName.errors
+    "
+  >
+    <div class="" *ngIf="cardForm.controls.firstName.errors?.['required']">
+      Enter First Name
+    </div>
+  </ng-container>
+
+  <h3 class="label">Last Name</h3>
+  <input formControlName="lastName" />
+  <ng-container
+    *ngIf="
+      cardForm.controls.lastName.touched &&
+      cardForm.controls.lastName.dirty &&
+      cardForm.controls.lastName.errors
+    "
+  >
+    <div *ngIf="cardForm.controls.lastName.errors?.['required']">
+      Enter Last Name
+    </div>
+  </ng-container>
+
+  <h3 class="label">Email</h3>
+  <input formControlName="email" />
+  <ng-container
+    *ngIf="
+      cardForm.controls.email.touched &&
+      cardForm.controls.email.dirty &&
+      cardForm.controls.email.errors
+    "
+  >
+    <div *ngIf="cardForm.controls.email.errors?.['pattern'] ">
+      Enter valid Email
+    </div>
+  </ng-container>
+
+  <hr />
+
+  <div class="columns">
+    <h3 class="label">Gender :</h3>
+    <div>
+      <div class="control">
+        <label class="radio">
+          <input type="radio" name="answer" />
+          Male
+        </label>
+        <label class="radio">
+          <input type="radio" name="answer" />
+          Female
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <app-height> </app-height>
+  <app-weight> </app-weight>
+  <br />
+  <button class="button is-primary" type="button">Calculate</button>
+</form>
+
+<hr />
