@@ -1,8 +1,12 @@
-<h3 class="label">Your Weight (KG)</h3>
+<h3 class="label mb-2">Your Weight (KG)</h3>
 
 <div class="columns" [formGroup]="cardForm">
   <div>
-    <input formControlName="weightInput" (input)="onInput($event)" />
+    <input
+      class="ml-3 mt-2"
+      formControlName="weightInput"
+      (input)="onInput($event)"
+    />
     <ng-container
       *ngIf="
         cardForm.controls.weightInput.touched &&
@@ -15,7 +19,7 @@
       </div>
     </ng-container>
   </div>
-  <div>
+  <div class="mt-2">
     <label><b>=</b>{{ kg | convert }} Pounds</label>
   </div>
 </div>
